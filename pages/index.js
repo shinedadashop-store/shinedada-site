@@ -212,7 +212,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <style jsx>{\`
+      <style jsx>{`
         :global(body) {
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
@@ -296,7 +296,7 @@ export default function Home() {
           .sectionTop, .basketHeader, .footerWrap, .nav { flex-direction: column; align-items: flex-start; }
           .stats { grid-template-columns: 1fr; }
         }
-      \`}</style>
+      `}</style>
     </div>
   );
 }
