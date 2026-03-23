@@ -1,4 +1,3 @@
-
 import { useMemo, useState } from "react";
 
 export default function Home() {
@@ -25,7 +24,9 @@ export default function Home() {
     setCart((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
-        return prev.map((item) => item.id === product.id ? { ...item, qty: item.qty + 1 } : item);
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+        );
       }
       return [...prev, { ...product, qty: 1 }];
     });
@@ -34,7 +35,9 @@ export default function Home() {
   const changeQty = (id, delta) => {
     setCart((prev) =>
       prev
-        .map((item) => item.id === id ? { ...item, qty: Math.max(0, item.qty + delta) } : item)
+        .map((item) =>
+          item.id === id ? { ...item, qty: Math.max(0, item.qty + delta) } : item
+        )
         .filter((item) => item.qty > 0)
     );
   };
@@ -46,7 +49,9 @@ export default function Home() {
     const lines = [
       "Bonjour Shinedada, je souhaite commander :",
       "",
-      ...cart.map((item) => `- ${item.name} x${item.qty} = ${(item.price * item.qty).toFixed(2)}€`),
+      ...cart.map(
+        (item) => `- ${item.name} x${item.qty} = ${(item.price * item.qty).toFixed(2)}€`
+      ),
       "",
       `Total estimé : ${total.toFixed(2)}€`,
       "",
@@ -122,7 +127,12 @@ export default function Home() {
               <p className="sectionLabel">Catalogue</p>
               <h2>Nos produits</h2>
             </div>
-            <input className="search" placeholder="Rechercher un produit" value={search} onChange={(e) => setSearch(e.target.value)} />
+            <input
+              className="search"
+              placeholder="Rechercher un produit"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
 
           <div className="grid">
@@ -187,7 +197,12 @@ export default function Home() {
               <span>Total estimé</span>
               <strong>{total.toFixed(2)}€</strong>
             </div>
-            <a className="whatsappBtn" href={cart.length ? whatsappLink : `https://wa.me/${phone}`} target="_blank" rel="noreferrer">
+            <a
+              className="whatsappBtn"
+              href={cart.length ? whatsappLink : `https://wa.me/${phone}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               Envoyer la commande
             </a>
             <p className="summaryText">
